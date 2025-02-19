@@ -8,8 +8,6 @@ public class Professor {
 	private String surname;
 	private Degree degree;
 	
-	private Course course;
-	
 	//Getters
 	
 	public long getpID() {

@@ -20,6 +20,7 @@ public class Student {
 	}
 	
 	
+	
 	public void setStID() {
 		stID = counter++;
 	}
@@ -55,6 +56,8 @@ public class Student {
 		setName(name);
 		setSurname(surname);
 	}
+	
+	
 	
 	@Override
 	public String toString() {
