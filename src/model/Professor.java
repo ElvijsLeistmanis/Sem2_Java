@@ -1,14 +1,18 @@
 package model;
 
 public class Professor {
-	private static long pID = 0;
+	
+	private static long counter = 0;
+	private long pID;
 	private String name;
 	private String surname;
 	private Degree degree;
 	
+	private Course course;
+	
 	//Getters
 	
-	public static long getpID() {
+	public long getpID() {
 		return pID;
 	}
 
@@ -26,15 +30,25 @@ public class Professor {
 	
 	//Setters
 
+	public void setPID() {
+		pID = counter++;
+	}
+	
 	public void setName(String name) {
-		if (name != null && name.matches("[A-Z]{1}[a-z]{3-10}")) {
+		if (name != null && name.matches("[A-Z]{1}[a-z]{3,10}")) {
 			this.name = name;
+		}
+		else {
+			this.name = "Professor";
 		}
 	}
 
 	public void setSurname(String surname) {
-		if (surname != null && surname.matches("[A-Z]{1}[a-z]{3-10}")) {
+		if (surname != null && surname.matches("[A-Z]{1}[a-z]{3,10}")) {
 			this.surname = surname;
+		}
+		else {
+			this.surname = "Professor";
 		}
 	}
 
@@ -42,29 +56,32 @@ public class Professor {
 		if (degree != null) {
 			this.degree = degree;
 		}
+		else {
+			this.degree = Degree.bsc;
+		}
 	}
 	
 	//Constructors
 
 	public Professor() {
-		this.name = "Professor";
-		this.surname = "professor";
-		this.degree = Degree.bsc;
-		pID++;
+		setPID();
+		setName("Professor");
+		setSurname("Professor");
+		setDegree(Degree.bsc);
 	}
 	
 	public Professor(String name, String surname, Degree degree) {
-		this.name = name;
-		this.surname = surname;
-		this.degree = degree;
-		pID++;
+		setPID();
+		setName(name);
+		setSurname(surname);
+		setDegree(degree);
 	}
 	
 	//toString
 
 	@Override
 	public String toString() {
-		return "Professor " + name + " " + surname + " (" + degree + ")";
+		return "Professor " + pID + ": " + name + " " + surname + " (" + degree + ")";
 	}
 	
 	
