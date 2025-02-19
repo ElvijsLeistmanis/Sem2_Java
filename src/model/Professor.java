@@ -6,39 +6,65 @@ public class Professor {
 	private String surname;
 	private Degree degree;
 	
+	//Getters
+	
+	public static long getpID() {
+		return pID;
+	}
+
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
 	public String getSurname() {
 		return surname;
 	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
+
 	public Degree getDegree() {
 		return degree;
 	}
-	public void setDegree(Degree degree) {
-		this.degree = degree;
+	
+	//Setters
+
+	public void setName(String name) {
+		if (name != null && name.matches("[A-Z]{1}[a-z]{3-10}")) {
+			this.name = name;
+		}
 	}
-	public long getpID() {
-		return pID;
+
+	public void setSurname(String surname) {
+		if (surname != null && surname.matches("[A-Z]{1}[a-z]{3-10}")) {
+			this.surname = surname;
+		}
+	}
+
+	public void setDegree(Degree degree) {
+		if (degree != null) {
+			this.degree = degree;
+		}
+	}
+	
+	//Constructors
+
+	public Professor() {
+		this.name = "Professor";
+		this.surname = "professor";
+		this.degree = Degree.bsc;
+		pID++;
 	}
 	
 	public Professor(String name, String surname, Degree degree) {
-		if (name != null && surname != null && degree != null) {
-			this.name = name;
-			this.surname = surname;
-			this.degree = degree;
-		}
-		else {
-			
-		}
+		this.name = name;
+		this.surname = surname;
+		this.degree = degree;
 		pID++;
-		
+	}
+	
+	//toString
+
+	@Override
+	public String toString() {
+		return "Professor " + name + " " + surname + " (" + degree + ")";
 	}
 	
 	
