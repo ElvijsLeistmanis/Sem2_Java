@@ -1,13 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Student {
 
 	private static long counter = 10000;
 	private long stID;
 	private String name;
 	private String surname;
-	
-	
+
+	private ArrayList<Grade> grades = new ArrayList();
 	
 	public long getStID() {
 		return stID;

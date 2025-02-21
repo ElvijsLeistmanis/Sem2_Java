@@ -59,6 +59,6 @@ public class Grade {
 
     @Override
     public String toString() {
-        return "Grade " + gID + ": " + value + " for " + student + " (" + course + ")";
+        return "Grade " + gID + ": " + value + " for " + student + " (" + course.getTitle() + ")";
     }
 }

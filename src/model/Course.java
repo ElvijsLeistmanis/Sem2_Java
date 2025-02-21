@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Course {
 	private static long counter = 100000; 
 	
@@ -7,8 +9,8 @@ public class Course {
 	private String title;
 	private int creditPoints;
 	private Professor professor;
-	
-	
+
+	private ArrayList<Grade> grades = new ArrayList();
 	
 	public long getcID() {
 		return cID;
