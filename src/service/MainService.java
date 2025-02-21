@@ -49,4 +49,17 @@ public class MainService {
 		System.out.println(allGrades);
 	}
 
+	//CRUD
+	//C - Create
+
+	public static void createProfessor(String name, String surname, Degree degree) throws Exception {
+		for (Professor professor : allProfessors) {
+			if (professor.getName().equals(name) && professor.getSurname().equals(surname)) {
+				throw new Exception("Professor already exists.");
+			}
+		}
+
+		allProfessors.add(new Professor(name, surname, degree));
+	}
+
 }
